@@ -52,3 +52,6 @@ class StageMetrics:
 
     def save_data(self, df, filepathandname, fileformat="json"):
         df.repartition(1).write.format(fileformat).save(filepathandname)
+
+    def sendReportPrometheus(self, serverIPnPort, metricsJob, labelName, labelValue):
+        self.stagemetrics.sendReportPrometheus(self, serverIPnPort, metricsJob, labelName, labelValue)
